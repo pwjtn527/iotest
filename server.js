@@ -371,8 +371,11 @@ function msgSyori(msgarray) {
 function upload_dir() {	
 	//作成
 	fs.mkdir(__dirname + '/public/uploads',function(err) {
-		if (err) throw err;
-		console.log('Make Directory');
+		if (err) {
+			del_updir(); 
+		} else {
+			console.log('Make Directory');
+		}
 	});
 
 }
