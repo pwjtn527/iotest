@@ -21,7 +21,7 @@ var pln = 0;
 var rn = 0;
 
 //バージョン
-var ver = '2.3';
+var ver = '2.3.1';
 
 var app = express();
 
