@@ -228,12 +228,7 @@ io.on('connection',function(socket) {
 			}
 
 			//画像フォルダ削除
-			fs.remove(__dirname + '/public/uploads',function(err) {
-				if (err) throw err;
-				console.log('Remove Directory');
-				//再作成
-				upload_dir();
-			});
+			del_updir();
 
 			console.log(date + ' ' + name + '(' + ip + ')' + 'disconnected sid="' + sid + '"');
 			}
@@ -380,6 +375,16 @@ function upload_dir() {
 		console.log('Make Directory');
 	});
 
+}
+
+//アップロードフォルダの削除
+function del_updir() {
+	fs.remove(__dirname + '/public/uploads',function(err) {
+		if (err) throw err;
+		console.log('Remove Directory');
+		//再作成
+		upload_dir();
+	});
 }
 
 console.log('---Socket.IO Chat Ver.' + ver + '---' + '\n' + 'Server Running!');
