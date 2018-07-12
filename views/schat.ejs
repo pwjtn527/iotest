@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<title>Socket.IO テスト</title>
+<link rel="stylesheet" href="./css/chat.css">
+<script src="./js/jquery-2.1.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/chat.min.js"></script>
+</head>
+<body>
+<header id="mtitle">Socket.IOを使ったリアルタイムチャット</header>
+<div id="msgs" style="postion:absolute;"></div>
+<div id="typing" style="postion:absolute;padding-bottom:120px;"></div>
+<div class="mform">
+<input type="text" id="name" style="width:100px;height:32px;left:100px;" placeholder="name">
+<input type="button" id="login" value="入室" onclick="login()"><br>
+<textarea id="message" style="width:95%;height:32px;" placeholder="message" disabled></textarea><br>
+<input type="button" id="send" style="width:100px;" value="送信" onclick="sendMsg()" disabled>
+<span id="error"></span>
+</div>
+</body>
+</html>

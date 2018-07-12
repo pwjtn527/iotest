@@ -1,0 +1,7 @@
+canvas {
+	border:1px solid #808080;
+}
+
+span#error {
+	color:#ff0000;
+}

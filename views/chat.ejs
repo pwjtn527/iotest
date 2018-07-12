@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<title>Socket.IO テスト</title>
+<link rel="stylesheet" href="./css/chat.css">
+<script src="./js/jquery-2.1.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/chat.min.js"></script>
+<link id="favicon" rel="shortcut icon" href="./imgs/favicon.ico">
+</head>
+<body>
+	<header><span style="font-size:24px;">Socket.IOを使ったリアルタイムチャット</span><span id="version" class="title" style="font-size:16px; color:#c3c3c3">ver 2.3</span> <span id="members">　　　入室:x人</span></header><br>
+名前<br>
+<input type="text" id="name" name="name" style="font-size: 20px;" size="20" autocomplete="off" value="">
+<input type="button" id="login" name="login" value="入室" onclick="login()"><br>
+<textarea id="message" name="message" autocomplete="off" wrap="hard" style="font-size:20px;" value="" disabled></textarea><br>
+<input type="button" id="send" name="send" value="送信" style="position:relative;left:400px;" onclick="sendMsg()" disabled><br>
+<a href="/upload_page" id="upload" style="display:none" onclick="window.open('/upload_page','subwin','width=300,height=300');return false;">アップロード</a><br>
+<span id="error"></span>
+<br>
+<br>
+<div style="margin-bottom:10px;" id="typing"></div>
+<div style="border:solid;margin-bottom:10px;" id="msgs"></div>
+</body>
+</html>
