@@ -29,23 +29,6 @@ app.engine('ejs',ejs.renderFile);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
-//httpsへのリダイレクト
-app.use(function(req,res,next) {
-	if (req.headers.host == 'localhost:8080') {
-		next();
-	} else {
-		var proto = req.headers['x-forwarded-proto'];
-		if (proto !== undefined) {
-			proto = proto.toLowerCase();
-		}
-
-		if (proto === 'https') {
-			next();
-		} else {
-			res.redirect('https://' + req.headers.host + req.url);
-		}
-	}
-});
 
 var storage = multer.diskStorage({
 	destination:function(req,file,cb) {
@@ -68,6 +51,7 @@ var ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 var io = require('socket.io')(app.listen(port,ip));
 
 app.get('/',function(req,res) {
+	console.log(req.headers['x-forwarded-proto'];
 	var ua = req.headers['user-agent'];
 	if (ua.indexOf('iPhone') > 0 && ua.indexOf('iPad') == -1 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0) {
 		res.render('schat.ejs',{});
