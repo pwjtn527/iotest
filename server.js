@@ -51,7 +51,7 @@ var ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 var io = require('socket.io')(app.listen(port,ip));
 
 app.get('/',function(req,res) {
-	console.log(req.headers['x-forwarded-proto'];
+	console.log(req.headers['x-forwarded-proto']);
 	var ua = req.headers['user-agent'];
 	if (ua.indexOf('iPhone') > 0 && ua.indexOf('iPad') == -1 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0) {
 		res.render('schat.ejs',{});
