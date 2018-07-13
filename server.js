@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 //httpsへのリダイレクト
 app.use(function(req,res,next) {
-	console.log(req.headers['x-forwarded-proto'][0]);
+	console.log(req.headers);
 	if (req.headers.host == 'localhost:8080') {
 		next();
 	} else {
