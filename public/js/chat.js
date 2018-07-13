@@ -3,7 +3,7 @@ var mode = 0;
 //未読
 var mc = -1;
 //var socket = io.connect('localhost:3000',{'forceNew':true});
-var socket = io.connect('https://iotest.glitch.me/',{'forceNew':true});
+var socket = io.connect('https://yk-socketiotest.glitch.me/',{'forceNew':true});
 var ua = navigator.userAgent;
 var uan = 0;
 var type = false;
