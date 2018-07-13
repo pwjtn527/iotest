@@ -29,6 +29,23 @@ app.engine('ejs',ejs.renderFile);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
+//httpsへのリダイレクト
+app.use(function(req,res,next) {
+	if (req.headers.host == 'localhost:8080') {
+		next();
+	} else {
+		var proto = req.headers['x-forwarded-proto'];
+		if (proto !== undefined) {
+			proto = proto.toLowerCase();
+		}
+
+		if (proto === 'https') {
+			next();
+		} else {
+			res.redirect('https://' + req.headers.host + req.url);
+		}
+	}
+});
 
 var storage = multer.diskStorage({
 	destination:function(req,file,cb) {
