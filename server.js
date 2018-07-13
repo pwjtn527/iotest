@@ -31,11 +31,10 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 //httpsへのリダイレクト
 app.use(function(req,res,next) {
-	console.log(req.headers['x-forwarded-proto'].substring(0,4);
 	if (req.headers.host == 'localhost:8080') {
 		next();
 	} else {
-		var proto = req.headers['x-forwarded-proto'][0];
+		var proto = req.headers['x-forwarded-proto'].sunstring(0,5);
 		if (proto !== undefined) {
 			proto = proto.toLowerCase();
 		}
