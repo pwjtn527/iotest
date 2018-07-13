@@ -34,7 +34,7 @@ app.use(function(req,res,next) {
 	if (req.headers.host == 'localhost:8080') {
 		next();
 	} else {
-		var proto = req.headers['x-forwarded-proto'].sunstring(0,5);
+		var proto = req.headers['x-forwarded-proto'].substring(0,5);
 		if (proto !== undefined) {
 			proto = proto.toLowerCase();
 		}
